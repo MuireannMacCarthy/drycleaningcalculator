@@ -3,13 +3,15 @@ package service.impl;
 
 import model.OpeningHours;
 import service.BusinessHourCalculator;
+import static constants.DryCleaningConstants.RETURN_DATE_FORMAT;
+import static constants.DryCleaningConstants.TIME_FORMAT;
+import static constants.DryCleaningConstants.EXPECTED_FORMAT;
 
 import java.time.LocalTime;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.DayOfWeek;
 import java.time.Duration;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
@@ -20,9 +22,7 @@ public class BusinessHourCalculatorImpl implements BusinessHourCalculator {
     private LocalTime defaultClosingTime;
     private Map<DayOfWeek, OpeningHours> dayOfWeekOpeningHours = new HashMap<>();
     private Map<String, OpeningHours> dateOpeningHours = new HashMap<>();
-    private static final DateTimeFormatter EXPECTED_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd H:m");
-    private static final DateTimeFormatter RETURN_DATE_FORMAT = DateTimeFormatter.ofPattern("E MMM dd HH:mm:ss yyyy");
-    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("H:m");
+
 
     public BusinessHourCalculatorImpl(String defaultOpeningTime, String defaultClosingTime) {
         this.defaultOpeningTime = LocalTime.parse(defaultOpeningTime);
