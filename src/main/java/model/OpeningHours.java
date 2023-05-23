@@ -1,20 +1,42 @@
+package model;
 
-import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 public class OpeningHours {
 
-    private DayOfWeek day;
+    private LocalTime openTime;
 
-    private String startTime;
-
-    private String endTime;
+    private LocalTime closeTime;
 
     private boolean isOpen;
 
-    public OpeningHours(DayOfWeek day, String startTime, String endTime, boolean isOpen) {
-        this.day = day;
-        this.startTime = startTime;
-        this.endTime = endTime;
+    public OpeningHours(LocalTime openTime, LocalTime closeTime, boolean isOpen) {
+        this.openTime = openTime;
+        this.closeTime = closeTime;
         this.isOpen = isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpenTime(LocalTime openTime) {
+        this.openTime = openTime;
+    }
+
+    public void setCloseTime(LocalTime closeTime) {
+        this.closeTime = closeTime;
+    }
+
+    public LocalTime getOpenTime() {
+        return openTime;
+    }
+
+    public LocalTime getCloseTime() {
+        return closeTime;
     }
 }
